@@ -1,5 +1,3 @@
-#ifndef _TREADAXIS_H_
-#define _TREADAXIS_H_
 /*************************************************************************************************************
 *	Filename: TreadAxis.h
 *	Author:	Tyler Martin
@@ -14,9 +12,13 @@
 *					xxxxx000b	|	Halt
 *	
 **************************************************************************************************************/
-//Picks up the parallel code and executes the function corresponding to the code
+#ifndef TREADAXIS_H_
+#define TREADAXIS_H_
+#include <avr/io.h>
+
+//Description: Picks up the parallel code and executes the function corresponding to the code
 //Return:		error code of 0 for no error
-int DecodeTread();
+int TreadAxisDecode();
 
 //Description:	Drives motors forward
 //Return:		error code of 0 for no error
@@ -42,5 +44,5 @@ int Hold();
 //				PORTA set to outputs for left motor bank
 //				PORTB set to outputs for Right Motor bank
 //Return:		error code of 0 for no error
-int InitTreads();
+int TreadAxisInit();
 #endif

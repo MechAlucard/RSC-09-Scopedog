@@ -1,5 +1,5 @@
 #include "TreadAxis.h"
-#define TREAD_MASK 0xF8
+#define TREAD_MASK 0x07
 #define FORWARD 0x01
 #define	BACKWARD 0x02
 #define LEFT 0x03
@@ -7,19 +7,19 @@
 #define HALT 0x00
 //Description: Picks up code on PORTD and executes the function corresponding to the code
 //Return:		error code of 0 for no error
-int DecodeTread()
+int TreadAxisDecode()
 {
-	char cmd = 0;
+	unsigned char cmd = 0;
 	cmd = PIND;
-	if(FORWARD == cmd | TREAD_MASK)
+	if(FORWARD == (cmd & TREAD_MASK))
 		Forwards();
-	else if(BACKWARD == cmd | TREAD_MASK)
+	else if(BACKWARD == (cmd & TREAD_MASK))
 		Backwards();
-	else if(LEFT == cmd | TREAD_MASK)
+	else if(LEFT == (cmd & TREAD_MASK))
 		Left();
-	else if(RIGHT == cmd | TREAD_MASK)
+	else if(RIGHT == (cmd & TREAD_MASK))
 		Right();
-	else if(HALT == cmd | TREAD_MASK)
+	else if(HALT == (cmd & TREAD_MASK))
 		Hold();
 	else
 		Hold();
@@ -82,7 +82,7 @@ int Hold()
 //				PORTA set to outputs for left motor bank
 //				PORTB set to outputs for Right Motor bank
 //Return:		error code of 0 for no error
-int InitTreads()
+int TreadAxisInit()
 {
 	//set PORTD to inputs with no pullups
 	PORTD = 0x00;
