@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Chiriko", "Chiriko\Chiriko.cproj", "{69A75122-0791-4FAF-8DFA-62BA38A9EE31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69A75122-0791-4FAF-8DFA-62BA38A9EE31}.Debug|AVR.ActiveCfg = Debug|AVR
+		{69A75122-0791-4FAF-8DFA-62BA38A9EE31}.Debug|AVR.Build.0 = Debug|AVR
+		{69A75122-0791-4FAF-8DFA-62BA38A9EE31}.Release|AVR.ActiveCfg = Release|AVR
+		{69A75122-0791-4FAF-8DFA-62BA38A9EE31}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
