@@ -9,12 +9,15 @@
 
 #include <avr/io.h>
 #include "TreadAxis.h"
+#include "CameraAxis.h"
 
 int main(void)
 {
-	InitTreads();
+	TreadAxisInit();
+	CameraAxisInit();
     while(1)
     {
-        DecodeTread();
+        TreadAxisDecode();
+		CameraAxisDecode();
     }
 }

@@ -73,7 +73,22 @@ int CameraAxisDecode()
 	//remainder PW, up to 1ms
 	while((pan_count > 0)||(tilt_count > 0))
 	{
-		
+		_delay_us(4);
+		if(pan_count != 0)
+		{
+			if(--pan_count == 0)
+			{
+				PORTC &= (~(1<<PAN_BIT));  
+			}
+		}
+		if(tilt_count != 0)
+		{
+			if(--tilt_count == 0)
+			{
+				PORTC &= (~(1<<TILT_BIT));
+			}
+		}	
+				
 	}
 	return 0;
 }
@@ -145,7 +160,7 @@ int LED_Off()
 //Return:		tilt percentage
 unsigned char GetTilt()
 {
-	retun tilt_pos;
+	return tilt_pos;
 }
 
 //Description:	gets the current pan position from 0 to 255
