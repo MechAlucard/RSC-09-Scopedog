@@ -20,6 +20,9 @@
 #define LED_ON 0x08
 #define LED_OFF 0x00
 #define AXIS_MASK 0xF0
+#define TILT_MASK 0x30
+#define	PAN_MASK 0xC0
+#define LED_MASK 0x08
 #define MAX_TILT 250
 #define MIN_TILT 0
 #define MAX_PAN 250
@@ -35,8 +38,8 @@ int CameraAxisInit()
 	//set PORTC[0:2] to outputs and initialize to zero
 	DDRC = (1<<DDRC0)|(1<<DDRC1)|(1<<DDRC2);
 	PORTC = (0<<PAN_BIT)|(0<<TILT_BIT)|(0<<LED_BIT);
-	tilt_pos = 127;
-	pan_pos = 127;
+	tilt_pos = 125;
+	pan_pos = 125;
 	return 0;
 }
 
@@ -45,24 +48,29 @@ int CameraAxisInit()
 int CameraAxisDecode()
 {
 	//update LED
-	char code = (PINC&AXIS_MASK);
-	if(code == LED_ON)
+	unsigned char code = (PIND & (LED_MASK | AXIS_MASK));
+	if(LED_ON == (code & LED_MASK))
 		LED_On();
 	else
 		LED_Off();
 	//update tilt axis	
-	if(code == TILT_UP)
+	if(TILT_UP == code & TILT_MASK)
 		TiltInc();
-	else if (code == TILT_DN)
+	else if (TILT_DN == code & TILT_MASK)
 		TiltDec();
 	//update pan axis	
-	if(code == PAN_LEFT)
+	if(PAN_LEFT == code & PAN_MASK)
 		PanInc();
-	else if(code == PAN_RIGHT)
+	else if(PAN_RIGHT == code & PAN_MASK)
 		PanDec();
 	//make PW
 	int pan_count = pan_pos;
 	int tilt_count = tilt_pos;
+	int remainder = 0;
+	if(tilt_count > pan_count)
+		remainder = MAX_TILT - tilt_count;
+	else
+		remainder = MAX_PAN - pan_count;
 	int min_delay = 1000;
 	//Min PW of 1ms
 	PORTC |= (1<<PAN_BIT)|(1<<TILT_BIT);
@@ -89,6 +97,10 @@ int CameraAxisDecode()
 			}
 		}	
 				
+	}
+	while(remainder--)
+	{
+		_delay_us(4);
 	}
 	return 0;
 }
