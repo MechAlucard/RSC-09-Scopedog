@@ -6,6 +6,12 @@
 #include <Wt/WBreak>
 #include <Wt/WLabel>
 #include <Wt/WLength>
+#include "Picontrol/control.h"
+#include <Wt/WTemplate>
+#include <sys/types.h>
+#include <ifaddrs.h>
+#include <arpa/inet.h>
+
 class MainScreen : public Wt::WContainerWidget
 {
 public:
@@ -22,4 +28,17 @@ private:
 	Wt::WPushButton * panRight_;
 	Wt::WPushButton * panLeft_;
 	Wt::WPushButton * led_;
+	Wt::WLabel * treadStatus_;
+	Wt::WLabel * camStatus_;
+	Wt::WLabel * ledStatus_;
+	void forward();
+	void reverse();
+	void leftTurn();
+	void rightTurn();
+	void ledOn();
+	void ledOff();
+	void panRight();
+	void panLeft();
+	void tiltUp();
+	void tiltDown();
 };

@@ -7,6 +7,7 @@
 #include <Wt/WStackedWidget>
 #include <Wt/WString>
 #include "Login.h"
+#include "MainScreen.h"
 class MainApplication : public Wt::WApplication
 {
 public:
@@ -23,8 +24,8 @@ MainApplication::MainApplication(const Wt::WEnvironment& env)
 	screen_ = new Wt::WStackedWidget(root());
 	Wt::WString password("test");
 	screen_ = new Wt::WStackedWidget(root());
-	screen_->addWidget(new Login(password,root()));
-		
+	//screen_->addWidget(new Login(password,root()));
+	screen_->addWidget(new MainScreen(root()));	
 }
 
 Wt::WApplication *createApplication(const Wt::WEnvironment& env)
