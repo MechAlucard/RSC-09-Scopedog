@@ -25,7 +25,9 @@ MainApplication::MainApplication(const Wt::WEnvironment& env)
 	Wt::WString password("test");
 	screen_ = new Wt::WStackedWidget(root());
 	//screen_->addWidget(new Login(password,root()));
-	screen_->addWidget(new MainScreen(root()));	
+	MainScreen * MainApp_ = new MainScreen(root());
+	screen_->addWidget(MainApp_);
+	this->globalKeyWentDown().connect(MainApp_, &MainScreen::keyHandler);
 }
 
 Wt::WApplication *createApplication(const Wt::WEnvironment& env)

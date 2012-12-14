@@ -6,18 +6,21 @@
 #include <Wt/WBreak>
 #include <Wt/WLabel>
 #include <Wt/WLength>
+#include <Wt/WApplication>
+#include <Wt/WEvent>
 #include "Picontrol/control.h"
 #include <Wt/WTemplate>
 #include <sys/types.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#include <unistd.h>
+#include <stdio.h>
 
 class MainScreen : public Wt::WContainerWidget
 {
 public:
 	MainScreen(Wt::WContainerWidget * parent = 0);
 private:
-	Wt::WText * video_;
 	Wt::WPushButton * treadUp_;
 	Wt::WPushButton * treadDown_;
 	Wt::WPushButton * treadRight_;
@@ -28,9 +31,11 @@ private:
 	Wt::WPushButton * panRight_;
 	Wt::WPushButton * panLeft_;
 	Wt::WPushButton * led_;
-	Wt::WLabel * treadStatus_;
-	Wt::WLabel * camStatus_;
-	Wt::WLabel * ledStatus_;
+	Wt::WText * treadStatus_;
+	Wt::WText * camStatus_;
+	Wt::WText * ledStatus_;
+	bool ledState_;
+public:
 	void forward();
 	void reverse();
 	void leftTurn();
@@ -41,4 +46,7 @@ private:
 	void panLeft();
 	void tiltUp();
 	void tiltDown();
+	void halt();
+	void ledToggle();
+	void keyHandler(const Wt::WKeyEvent &e);
 };
