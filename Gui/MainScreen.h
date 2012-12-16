@@ -20,7 +20,23 @@ class MainScreen : public Wt::WContainerWidget
 {
 public:
 	MainScreen(Wt::WContainerWidget * parent = 0);
+	//~MainScreen(){delete ctl_;};
+	void forward();
+	void reverse();
+	void leftTurn();
+	void rightTurn();
+	void ledOn();
+	void ledOff();
+	void panRight();
+	void panLeft();
+	void tiltUp();
+	void tiltDown();
+	void halt();
+	void ledToggle();
+	void keyDownHandler(const Wt::WKeyEvent &e);
+	void keyUpHandler(const Wt::WKeyEvent &e);
 private:
+	IO_Control ctl_; 
 	Wt::WPushButton * treadUp_;
 	Wt::WPushButton * treadDown_;
 	Wt::WPushButton * treadRight_;
@@ -35,18 +51,4 @@ private:
 	Wt::WText * camStatus_;
 	Wt::WText * ledStatus_;
 	bool ledState_;
-public:
-	void forward();
-	void reverse();
-	void leftTurn();
-	void rightTurn();
-	void ledOn();
-	void ledOff();
-	void panRight();
-	void panLeft();
-	void tiltUp();
-	void tiltDown();
-	void halt();
-	void ledToggle();
-	void keyHandler(const Wt::WKeyEvent &e);
 };
