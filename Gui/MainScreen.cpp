@@ -1,34 +1,12 @@
 #include "MainScreen.h"
 #define BUTTON_SIZE 65
-MainScreen::MainScreen(Wt::WContainerWidget * parent) : ctl_(IO_Control()), ledState_(0)
+#define INTERFACE_NAME "eth0"
+MainScreen::MainScreen(Wt::WContainerWidget * parent) : ctl_(IO_Control()), ledState_(0), address_(), videoElement_()
 {
-	//ctl_->= IO_Control();
 	//Add video element...
 	Wt::WTemplate * vid_ = new Wt::WTemplate(this);
 	vid_->setTemplateText("<object data=http://192.168.1.121:8090/?action=stream width=\"700\" height=\"500\"> <embed src=http://192.168.1.121:8090/?action=stream width=\"700\" height=\"500\"> </embed> </object>",Wt::XHTMLUnsafeText);
 
-/*	struct ifaddrs * ifap = NULL, *tempIfAddr = NULL;
-	void * tempAddrPtr = NULL;
-	char addressOutputBuffer[INET6_ADDRSTRLEN];
-	if(getifaddrs(&ifap) == 0)
-	{
-		tempIfAddrPtr = ifap;
-		//if(tempIfAddrPtr->ifa_addr->sa_family == AF_INET)
-		{
-			tempIfAddPtr = &((struct sockaddr_in *)tempIfAddr->sin_addr;
-		}
-		//else
-		
-		//	tempIfAddPtr = &((struct sockaddr_in *)tempIfAddr->sin6_addr;
-		}
-		video_->setText(
-		Wt::WString(inet_ntop(ifap->ifa_addr->sa_family,
-		tempAddrPtr,
-		addressOutputBuffer,
-		sizeof(addressOutputBuffer))));
-		freeifaddrs(ifap);
-	}
-*/
 	//break
 	new Wt::WBreak(this);
 	//Add titles above the control table in a 3 x 1 table
@@ -152,9 +130,15 @@ buttonLayout_->elementAt(1,5)->resize
 	statLayout_->elementAt(0,0)->addWidget(new Wt::WText("Tread Status: "));
 	statLayout_->elementAt(1,0)->addWidget(new Wt::WText("Camera Status: "));
 	statLayout_->elementAt(2,0)->addWidget(new Wt::WText("LED Status: "));
+	statLayout_->elementAt(3,0)->addWidget(new Wt::WText("Address: "));
+
 	treadStatus_ = new Wt::WText("Halt",statLayout_->elementAt(0,1));
 	camStatus_ = new Wt::WText("Halt",statLayout_->elementAt(1,1));
 	ledStatus_ = new Wt::WText("Off",statLayout_->elementAt(2,1));
+	ipStatus_ = new Wt::WText("UNKNOWN!!",statLayout_->elementAt(3,1));
+	Wt::WString interfaceName(INTERFACE_NAME);
+	setAddress(interfaceName);
+	ipStatus_->setText(address_);
 }
 void MainScreen::forward()
 {
@@ -277,4 +261,55 @@ void MainScreen::keyUpHandler(const Wt::WKeyEvent &e)
 	   e.key() == Wt::Key_S ||
 	   e.key() == Wt::Key_D)
 	halt();	
+}
+void MainScreen::setVideoElement()
+{
+	videoElement_ = Wt::WString("DUMMY");
+	return;
+}
+//Sets the ipv4 address to be used based on the interface name given
+void MainScreen::setAddress(Wt::WString & interfaceName)
+{
+	struct ifaddrs * interfaceArray = NULL, * tempIfAddr = NULL;
+	void * tempAddrPtr = NULL;
+	char addressOutputBuffer[INET6_ADDRSTRLEN] = {0};
+	int rc = 0;
+	bool match_type = 0;
+	Wt::WString name;
+	rc = getifaddrs(&interfaceArray);
+	if(rc == 0)
+	{
+		for(tempIfAddr = interfaceArray; tempIfAddr != NULL; tempIfAddr = tempIfAddr->ifa_next)
+    		{
+      			if(tempIfAddr->ifa_addr->sa_family == AF_INET && match_type == 0)
+			{
+        			tempAddrPtr = &((struct sockaddr_in *)tempIfAddr->ifa_addr)->sin_addr;
+				match_type = 1;
+			}
+      			else
+			{
+       			 	tempAddrPtr = &((struct sockaddr_in6 *)tempIfAddr->ifa_addr)->sin6_addr; 
+			}
+     		       	inet_ntop(tempIfAddr->ifa_addr->sa_family,
+	                       	tempAddrPtr,
+       	          		addressOutputBuffer,
+       	               		sizeof(addressOutputBuffer));	
+				name = Wt::WString(tempIfAddr->ifa_name, Wt::LocalEncoding);
+				if(interfaceName == name && match_type)
+		    		{
+					address_ = Wt::WString(addressOutputBuffer, Wt::LocalEncoding);
+					return;
+				}
+				else
+				{
+					address_ = Wt::WString("Interface Not Found");
+				}
+				match_type = 0;
+				
+		}
+	}
+	else
+		address_ = Wt::WString("Failed");
+	freeifaddrs(interfaceArray);
+	return;
 }

@@ -15,7 +15,6 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <stdio.h>
-
 class MainScreen : public Wt::WContainerWidget
 {
 public:
@@ -50,5 +49,11 @@ private:
 	Wt::WText * treadStatus_;
 	Wt::WText * camStatus_;
 	Wt::WText * ledStatus_;
+	Wt::WText * ipStatus_;
+	Wt::WString address_;
+	Wt::WString videoElement_;
+	void setVideoElement();
+	void setAddress(Wt::WString & interfaceName);
 	bool ledState_;
 };
+
