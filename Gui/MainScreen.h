@@ -19,7 +19,6 @@ class MainScreen : public Wt::WContainerWidget
 {
 public:
 	MainScreen(Wt::WContainerWidget * parent = 0);
-	//~MainScreen(){delete ctl_;};
 	void forward();
 	void reverse();
 	void leftTurn();

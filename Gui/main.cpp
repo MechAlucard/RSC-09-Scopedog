@@ -11,7 +11,8 @@
 class MainApplication : public Wt::WApplication
 {
 public:
-    MainApplication(const Wt::WEnvironment& env);
+    	MainApplication(const Wt::WEnvironment& env);
+	void switchToMainApp();
 
 private:
 	Wt::WStackedWidget *screen_;
@@ -24,13 +25,18 @@ MainApplication::MainApplication(const Wt::WEnvironment& env)
 	screen_ = new Wt::WStackedWidget(root());
 	Wt::WString password("test");
 	screen_ = new Wt::WStackedWidget(root());
-	//screen_->addWidget(new Login(password,root()));
+	Login * enteryScreen = new Login(password,root());
+	screen_->addWidget(enteryScreen);
 	MainScreen * MainApp_ = new MainScreen(root());
 	screen_->addWidget(MainApp_);
+	enteryScreen->loginSuccessful.connect(this, &MainApplication::switchToMainApp);
 	this->globalKeyWentUp().connect(MainApp_, &MainScreen::keyUpHandler);
 	this->globalKeyWentDown().connect(MainApp_, &MainScreen::keyDownHandler);
 }
-
+void MainApplication::switchToMainApp()
+{
+	screen_->setCurrentIndex(1);
+}
 Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 {
     return new MainApplication(env);

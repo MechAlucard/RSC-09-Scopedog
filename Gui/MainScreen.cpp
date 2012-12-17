@@ -1,11 +1,14 @@
 #include "MainScreen.h"
 #define BUTTON_SIZE 65
 #define INTERFACE_NAME "eth0"
-MainScreen::MainScreen(Wt::WContainerWidget * parent) : ctl_(IO_Control()), ledState_(0), address_(), videoElement_()
-{
+MainScreen::MainScreen(Wt::WContainerWidget * parent) : ctl_(IO_Control()), ledState_(0), address_(Wt::WString()), videoElement_(Wt::WString())
+{	//set the video element
+	Wt::WString interfaceName(INTERFACE_NAME);
+	setAddress(interfaceName);
+	setVideoElement();
 	//Add video element...
 	Wt::WTemplate * vid_ = new Wt::WTemplate(this);
-	vid_->setTemplateText("<object data=http://192.168.1.121:8090/?action=stream width=\"700\" height=\"500\"> <embed src=http://192.168.1.121:8090/?action=stream width=\"700\" height=\"500\"> </embed> </object>",Wt::XHTMLUnsafeText);
+	vid_->setTemplateText(videoElement_, Wt::XHTMLUnsafeText);
 
 	//break
 	new Wt::WBreak(this);
@@ -136,8 +139,7 @@ buttonLayout_->elementAt(1,5)->resize
 	camStatus_ = new Wt::WText("Halt",statLayout_->elementAt(1,1));
 	ledStatus_ = new Wt::WText("Off",statLayout_->elementAt(2,1));
 	ipStatus_ = new Wt::WText("UNKNOWN!!",statLayout_->elementAt(3,1));
-	Wt::WString interfaceName(INTERFACE_NAME);
-	setAddress(interfaceName);
+	
 	ipStatus_->setText(address_);
 }
 void MainScreen::forward()
@@ -264,8 +266,12 @@ void MainScreen::keyUpHandler(const Wt::WKeyEvent &e)
 }
 void MainScreen::setVideoElement()
 {
-	videoElement_ = Wt::WString("DUMMY");
-	return;
+	videoElement_ = "<object data=http://";
+	videoElement_ += address_;
+	videoElement_ += ":8090/?action=stream width=\"700\" height=\"500\"> <embed src=http://";
+	videoElement_ += address_;
+	videoElement_ += ":8090/?action=stream width=\"700\" height=\"500\"> </embed> </object>";
+return;
 }
 //Sets the ipv4 address to be used based on the interface name given
 void MainScreen::setAddress(Wt::WString & interfaceName)
