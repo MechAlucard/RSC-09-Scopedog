@@ -1,0 +1,24 @@
+#![Webpage Access]
+ext:External [Pe]
+Remote User:Actor
+Local User:Actor
+Server:Server[x] "Webserver"
+Login:widget "Login"
+
+
+Local User:Server.Turn On
+
+Remote User:Server.logon
+Server:ret=Login.Authenticate(password)
+Server:Remote User.Logged on
+
+Local User:Server.Turn Off
+
+
+
+
+
+
+
+
+

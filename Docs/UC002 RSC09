@@ -1,0 +1,21 @@
+#![Camera Axis]
+ext:External [Pe]
+Remote User:Actor
+Server:Server[] "Webserver"
+RSC_Control:RSC_Control [] "RSC_Control"
+CameraAxis:CameraAxis[] "Camera Axis"
+mc:mc[p] "Microcontroller"
+
+
+Remote User:Server.Key_Input
+Server:RSC_Control.Send Camera Axis Control
+RSC_Control:CameraAxis.Generate Opcode
+CameraAxis:mc.Pulse width modualtion
+
+
+
+
+
+
+
+

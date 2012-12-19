@@ -17,7 +17,8 @@ int main(void)
 	CameraAxisInit();
     while(1)
     {
-        TreadAxisDecode();
+		TreadAxisDecode();
 		CameraAxisDecode();
+		_delay_ms(20);
     }
 }

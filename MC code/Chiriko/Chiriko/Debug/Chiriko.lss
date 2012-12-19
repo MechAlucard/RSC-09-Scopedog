@@ -1,0 +1,770 @@
+
+Chiriko.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  0000036a  000003de  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000036a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .stab         000006cc  00000000  00000000  000003e0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  00000aac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 000000c0  00000000  00000000  00000b38  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 0000006f  00000000  00000000  00000bf8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000080b  00000000  00000000  00000c67  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000002c7  00000000  00000000  00001472  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000766  00000000  00000000  00001739  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000168  00000000  00000000  00001ea0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000227  00000000  00000000  00002008  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000217  00000000  00000000  0000222f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_pubtypes 0000001e  00000000  00000000  00002446  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   8:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  10:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  14:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  18:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  1c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  20:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  2c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  34:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  38:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  3c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  48:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  50:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  54:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  58:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  5c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  60:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  64:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  68:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  6c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  70:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  74:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  78:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d8 e0       	ldi	r29, 0x08	; 8
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_copy_data>:
+  88:	11 e0       	ldi	r17, 0x01	; 1
+  8a:	a0 e0       	ldi	r26, 0x00	; 0
+  8c:	b1 e0       	ldi	r27, 0x01	; 1
+  8e:	ea e6       	ldi	r30, 0x6A	; 106
+  90:	f3 e0       	ldi	r31, 0x03	; 3
+  92:	02 c0       	rjmp	.+4      	; 0x98 <__do_copy_data+0x10>
+  94:	05 90       	lpm	r0, Z+
+  96:	0d 92       	st	X+, r0
+  98:	a2 30       	cpi	r26, 0x02	; 2
+  9a:	b1 07       	cpc	r27, r17
+  9c:	d9 f7       	brne	.-10     	; 0x94 <__do_copy_data+0xc>
+
+0000009e <__do_clear_bss>:
+  9e:	11 e0       	ldi	r17, 0x01	; 1
+  a0:	a2 e0       	ldi	r26, 0x02	; 2
+  a2:	b1 e0       	ldi	r27, 0x01	; 1
+  a4:	01 c0       	rjmp	.+2      	; 0xa8 <.do_clear_bss_start>
+
+000000a6 <.do_clear_bss_loop>:
+  a6:	1d 92       	st	X+, r1
+
+000000a8 <.do_clear_bss_start>:
+  a8:	a2 30       	cpi	r26, 0x02	; 2
+  aa:	b1 07       	cpc	r27, r17
+  ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
+  ae:	0e 94 55 01 	call	0x2aa	; 0x2aa <main>
+  b2:	0c 94 b3 01 	jmp	0x366	; 0x366 <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ba <CameraAxisInit>:
+volatile static unsigned char tilt_pos = 127;
+volatile static unsigned char pan_pos = 127;
+int CameraAxisInit()
+{
+	//set PORTD to inputs with no pullups
+	PORTD = 0x00;
+  ba:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;
+  bc:	1a b8       	out	0x0a, r1	; 10
+	//set PORTC[0:2] to outputs and initialize to zero
+	DDRC = (1<<DDRC0)|(1<<DDRC1)|(1<<DDRC2);
+  be:	87 e0       	ldi	r24, 0x07	; 7
+  c0:	87 b9       	out	0x07, r24	; 7
+	PORTC = (0<<PAN_BIT)|(0<<TILT_BIT)|(0<<PORTC2);
+  c2:	18 b8       	out	0x08, r1	; 8
+	tilt_pos = 125;
+  c4:	8d e7       	ldi	r24, 0x7D	; 125
+  c6:	80 93 01 01 	sts	0x0101, r24
+	pan_pos = 125;
+  ca:	80 93 00 01 	sts	0x0100, r24
+	return 0;
+}
+  ce:	80 e0       	ldi	r24, 0x00	; 0
+  d0:	90 e0       	ldi	r25, 0x00	; 0
+  d2:	08 95       	ret
+
+000000d4 <TiltInc>:
+//Description:	increases the tilt PW by 1us up to 2ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int TiltInc()
+{
+	int ret = 0;
+	if(tilt_pos >= MAX_TILT)
+  d4:	80 91 01 01 	lds	r24, 0x0101
+  d8:	8a 3f       	cpi	r24, 0xFA	; 250
+  da:	40 f4       	brcc	.+16     	; 0xec <TiltInc+0x18>
+		ret = -1;
+	else
+		tilt_pos++;
+  dc:	80 91 01 01 	lds	r24, 0x0101
+  e0:	8f 5f       	subi	r24, 0xFF	; 255
+  e2:	80 93 01 01 	sts	0x0101, r24
+
+//Description:	increases the tilt PW by 1us up to 2ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int TiltInc()
+{
+	int ret = 0;
+  e6:	80 e0       	ldi	r24, 0x00	; 0
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	08 95       	ret
+	if(tilt_pos >= MAX_TILT)
+		ret = -1;
+  ec:	8f ef       	ldi	r24, 0xFF	; 255
+  ee:	9f ef       	ldi	r25, 0xFF	; 255
+	else
+		tilt_pos++;
+	return ret;
+}
+  f0:	08 95       	ret
+
+000000f2 <TiltDec>:
+//Description:	decreases the tilt PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int TiltDec()
+{
+	int ret = 0;
+	if(tilt_pos <= MIN_TILT)
+  f2:	80 91 01 01 	lds	r24, 0x0101
+  f6:	88 23       	and	r24, r24
+  f8:	41 f0       	breq	.+16     	; 0x10a <TiltDec+0x18>
+		ret = -1;
+	else
+		tilt_pos--;
+  fa:	80 91 01 01 	lds	r24, 0x0101
+  fe:	81 50       	subi	r24, 0x01	; 1
+ 100:	80 93 01 01 	sts	0x0101, r24
+
+//Description:	decreases the tilt PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int TiltDec()
+{
+	int ret = 0;
+ 104:	80 e0       	ldi	r24, 0x00	; 0
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	08 95       	ret
+	if(tilt_pos <= MIN_TILT)
+		ret = -1;
+ 10a:	8f ef       	ldi	r24, 0xFF	; 255
+ 10c:	9f ef       	ldi	r25, 0xFF	; 255
+	else
+		tilt_pos--;
+	return ret;
+}
+ 10e:	08 95       	ret
+
+00000110 <PanInc>:
+//Description:	increases the pan PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int PanInc()
+{
+	int ret = 0;
+	if(pan_pos >= MAX_PAN)
+ 110:	80 91 00 01 	lds	r24, 0x0100
+ 114:	8a 3f       	cpi	r24, 0xFA	; 250
+ 116:	40 f4       	brcc	.+16     	; 0x128 <PanInc+0x18>
+		ret = -1;
+	else
+		pan_pos++;
+ 118:	80 91 00 01 	lds	r24, 0x0100
+ 11c:	8f 5f       	subi	r24, 0xFF	; 255
+ 11e:	80 93 00 01 	sts	0x0100, r24
+
+//Description:	increases the pan PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int PanInc()
+{
+	int ret = 0;
+ 122:	80 e0       	ldi	r24, 0x00	; 0
+ 124:	90 e0       	ldi	r25, 0x00	; 0
+ 126:	08 95       	ret
+	if(pan_pos >= MAX_PAN)
+		ret = -1;
+ 128:	8f ef       	ldi	r24, 0xFF	; 255
+ 12a:	9f ef       	ldi	r25, 0xFF	; 255
+	else
+		pan_pos++;
+	return ret;
+}
+ 12c:	08 95       	ret
+
+0000012e <PanDec>:
+//Description:	decreases the pan PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int PanDec()
+{
+	int ret = 0;
+	if(pan_pos <= MIN_PAN)
+ 12e:	80 91 00 01 	lds	r24, 0x0100
+ 132:	88 23       	and	r24, r24
+ 134:	41 f0       	breq	.+16     	; 0x146 <PanDec+0x18>
+		ret = -1;
+	else
+		pan_pos++;
+ 136:	80 91 00 01 	lds	r24, 0x0100
+ 13a:	8f 5f       	subi	r24, 0xFF	; 255
+ 13c:	80 93 00 01 	sts	0x0100, r24
+
+//Description:	decreases the pan PW by 1us down to 1ms
+//Return:		error code of 0 for no error, -1 for limit reached
+int PanDec()
+{
+	int ret = 0;
+ 140:	80 e0       	ldi	r24, 0x00	; 0
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	08 95       	ret
+	if(pan_pos <= MIN_PAN)
+		ret = -1;
+ 146:	8f ef       	ldi	r24, 0xFF	; 255
+ 148:	9f ef       	ldi	r25, 0xFF	; 255
+	else
+		pan_pos++;
+	return ret;
+}
+ 14a:	08 95       	ret
+
+0000014c <LED_On>:
+
+//Description:	Turns LED on
+//Return:		error code of 0 for no error
+int LED_On()
+{
+	PORTC |= (1<<PORTC7);
+ 14c:	47 9a       	sbi	0x08, 7	; 8
+	return 0;
+}
+ 14e:	80 e0       	ldi	r24, 0x00	; 0
+ 150:	90 e0       	ldi	r25, 0x00	; 0
+ 152:	08 95       	ret
+
+00000154 <LED_Off>:
+
+//Description:	Turns LED off
+//Return:		error code of 0 for no error
+int LED_Off()
+{
+	PORTC = PORTC & ((1<<PORTC7) ^ 0xff);
+ 154:	47 98       	cbi	0x08, 7	; 8
+	return 0;
+}
+ 156:	80 e0       	ldi	r24, 0x00	; 0
+ 158:	90 e0       	ldi	r25, 0x00	; 0
+ 15a:	08 95       	ret
+
+0000015c <CameraAxisDecode>:
+}
+
+//Description:	changes the axises by one or maintains the axis and outputs a PW
+//Return:		error code of 0 for no error
+int CameraAxisDecode()
+{
+ 15c:	cf 93       	push	r28
+ 15e:	df 93       	push	r29
+ 160:	cd b7       	in	r28, 0x3d	; 61
+ 162:	de b7       	in	r29, 0x3e	; 62
+ 164:	27 97       	sbiw	r28, 0x07	; 7
+ 166:	0f b6       	in	r0, 0x3f	; 63
+ 168:	f8 94       	cli
+ 16a:	de bf       	out	0x3e, r29	; 62
+ 16c:	0f be       	out	0x3f, r0	; 63
+ 16e:	cd bf       	out	0x3d, r28	; 61
+	//update LED
+	volatile unsigned char code = 0;
+ 170:	19 82       	std	Y+1, r1	; 0x01
+	code = PIND;
+ 172:	89 b1       	in	r24, 0x09	; 9
+ 174:	89 83       	std	Y+1, r24	; 0x01
+	if(LED_ON == (code & LED_MASK))
+ 176:	89 81       	ldd	r24, Y+1	; 0x01
+ 178:	83 ff       	sbrs	r24, 3
+ 17a:	03 c0       	rjmp	.+6      	; 0x182 <CameraAxisDecode+0x26>
+	{
+		LED_On();
+ 17c:	0e 94 a6 00 	call	0x14c	; 0x14c <LED_On>
+ 180:	02 c0       	rjmp	.+4      	; 0x186 <CameraAxisDecode+0x2a>
+	}		
+	else
+	{
+		LED_Off();
+ 182:	0e 94 aa 00 	call	0x154	; 0x154 <LED_Off>
+	}		
+	//update tilt axis	
+	if(TILT_UP == (code & TILT_MASK))
+ 186:	89 81       	ldd	r24, Y+1	; 0x01
+ 188:	80 73       	andi	r24, 0x30	; 48
+ 18a:	80 33       	cpi	r24, 0x30	; 48
+ 18c:	19 f4       	brne	.+6      	; 0x194 <CameraAxisDecode+0x38>
+	{
+		TiltInc();
+ 18e:	0e 94 6a 00 	call	0xd4	; 0xd4 <TiltInc>
+ 192:	06 c0       	rjmp	.+12     	; 0x1a0 <CameraAxisDecode+0x44>
+	}	
+	else if (TILT_DN == (code & TILT_MASK))
+ 194:	89 81       	ldd	r24, Y+1	; 0x01
+ 196:	80 73       	andi	r24, 0x30	; 48
+ 198:	80 32       	cpi	r24, 0x20	; 32
+ 19a:	11 f4       	brne	.+4      	; 0x1a0 <CameraAxisDecode+0x44>
+	{
+		TiltDec();
+ 19c:	0e 94 79 00 	call	0xf2	; 0xf2 <TiltDec>
+	}	
+	//update pan axis	
+	if(PAN_LEFT == (code & PAN_MASK))
+ 1a0:	89 81       	ldd	r24, Y+1	; 0x01
+ 1a2:	80 7c       	andi	r24, 0xC0	; 192
+ 1a4:	80 3c       	cpi	r24, 0xC0	; 192
+ 1a6:	19 f4       	brne	.+6      	; 0x1ae <CameraAxisDecode+0x52>
+	{
+		PanInc();
+ 1a8:	0e 94 88 00 	call	0x110	; 0x110 <PanInc>
+ 1ac:	06 c0       	rjmp	.+12     	; 0x1ba <CameraAxisDecode+0x5e>
+	}	
+	else if(PAN_RIGHT == (code & PAN_MASK))
+ 1ae:	89 81       	ldd	r24, Y+1	; 0x01
+ 1b0:	80 7c       	andi	r24, 0xC0	; 192
+ 1b2:	80 38       	cpi	r24, 0x80	; 128
+ 1b4:	11 f4       	brne	.+4      	; 0x1ba <CameraAxisDecode+0x5e>
+	{
+		PanDec();
+ 1b6:	0e 94 97 00 	call	0x12e	; 0x12e <PanDec>
+	}	
+	//make PW
+	volatile int pan_count = pan_pos;
+ 1ba:	80 91 00 01 	lds	r24, 0x0100
+ 1be:	90 e0       	ldi	r25, 0x00	; 0
+ 1c0:	9b 83       	std	Y+3, r25	; 0x03
+ 1c2:	8a 83       	std	Y+2, r24	; 0x02
+	volatile int tilt_count = tilt_pos;
+ 1c4:	80 91 01 01 	lds	r24, 0x0101
+ 1c8:	90 e0       	ldi	r25, 0x00	; 0
+ 1ca:	9d 83       	std	Y+5, r25	; 0x05
+ 1cc:	8c 83       	std	Y+4, r24	; 0x04
+	volatile int remainder = 0;
+ 1ce:	1f 82       	std	Y+7, r1	; 0x07
+ 1d0:	1e 82       	std	Y+6, r1	; 0x06
+	if(tilt_count > pan_count)
+ 1d2:	2c 81       	ldd	r18, Y+4	; 0x04
+ 1d4:	3d 81       	ldd	r19, Y+5	; 0x05
+ 1d6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 1d8:	9b 81       	ldd	r25, Y+3	; 0x03
+ 1da:	82 17       	cp	r24, r18
+ 1dc:	93 07       	cpc	r25, r19
+ 1de:	4c f4       	brge	.+18     	; 0x1f2 <CameraAxisDecode+0x96>
+		remainder = MAX_TILT - tilt_count;
+ 1e0:	2c 81       	ldd	r18, Y+4	; 0x04
+ 1e2:	3d 81       	ldd	r19, Y+5	; 0x05
+ 1e4:	8a ef       	ldi	r24, 0xFA	; 250
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	82 1b       	sub	r24, r18
+ 1ea:	93 0b       	sbc	r25, r19
+ 1ec:	9f 83       	std	Y+7, r25	; 0x07
+ 1ee:	8e 83       	std	Y+6, r24	; 0x06
+ 1f0:	08 c0       	rjmp	.+16     	; 0x202 <CameraAxisDecode+0xa6>
+	else
+		remainder = MAX_PAN - pan_count;
+ 1f2:	2a 81       	ldd	r18, Y+2	; 0x02
+ 1f4:	3b 81       	ldd	r19, Y+3	; 0x03
+ 1f6:	8a ef       	ldi	r24, 0xFA	; 250
+ 1f8:	90 e0       	ldi	r25, 0x00	; 0
+ 1fa:	82 1b       	sub	r24, r18
+ 1fc:	93 0b       	sbc	r25, r19
+ 1fe:	9f 83       	std	Y+7, r25	; 0x07
+ 200:	8e 83       	std	Y+6, r24	; 0x06
+	int min_delay = 1000;
+	//Min PW of 1ms
+	PORTC |= (1<<PAN_BIT)|(1<<TILT_BIT);
+ 202:	88 b1       	in	r24, 0x08	; 8
+ 204:	83 60       	ori	r24, 0x03	; 3
+ 206:	88 b9       	out	0x08, r24	; 8
+ 208:	88 ee       	ldi	r24, 0xE8	; 232
+ 20a:	93 e0       	ldi	r25, 0x03	; 3
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 20c:	00 00       	nop
+ 20e:	01 97       	sbiw	r24, 0x01	; 1
+	for(min_delay = 1000; min_delay > 0;min_delay--)
+ 210:	e9 f7       	brne	.-6      	; 0x20c <CameraAxisDecode+0xb0>
+ 212:	1c c0       	rjmp	.+56     	; 0x24c <CameraAxisDecode+0xf0>
+ 214:	00 c0       	rjmp	.+0      	; 0x216 <CameraAxisDecode+0xba>
+ 216:	00 c0       	rjmp	.+0      	; 0x218 <CameraAxisDecode+0xbc>
+	}
+	//remainder PW, up to 1ms
+	while((pan_count > 0)||(tilt_count > 0))
+	{
+		_delay_us(4);
+		if(pan_count != 0)
+ 218:	8a 81       	ldd	r24, Y+2	; 0x02
+ 21a:	9b 81       	ldd	r25, Y+3	; 0x03
+ 21c:	00 97       	sbiw	r24, 0x00	; 0
+ 21e:	49 f0       	breq	.+18     	; 0x232 <CameraAxisDecode+0xd6>
+		{
+			if(--pan_count == 0)
+ 220:	8a 81       	ldd	r24, Y+2	; 0x02
+ 222:	9b 81       	ldd	r25, Y+3	; 0x03
+ 224:	01 97       	sbiw	r24, 0x01	; 1
+ 226:	9b 83       	std	Y+3, r25	; 0x03
+ 228:	8a 83       	std	Y+2, r24	; 0x02
+ 22a:	00 97       	sbiw	r24, 0x00	; 0
+ 22c:	11 f4       	brne	.+4      	; 0x232 <CameraAxisDecode+0xd6>
+			{
+				PORTC &= ((0<<PAN_BIT));  
+ 22e:	88 b1       	in	r24, 0x08	; 8
+ 230:	18 b8       	out	0x08, r1	; 8
+			}
+		}
+		if(tilt_count != 0)
+ 232:	8c 81       	ldd	r24, Y+4	; 0x04
+ 234:	9d 81       	ldd	r25, Y+5	; 0x05
+ 236:	00 97       	sbiw	r24, 0x00	; 0
+ 238:	49 f0       	breq	.+18     	; 0x24c <CameraAxisDecode+0xf0>
+		{
+			if(--tilt_count == 0)
+ 23a:	8c 81       	ldd	r24, Y+4	; 0x04
+ 23c:	9d 81       	ldd	r25, Y+5	; 0x05
+ 23e:	01 97       	sbiw	r24, 0x01	; 1
+ 240:	9d 83       	std	Y+5, r25	; 0x05
+ 242:	8c 83       	std	Y+4, r24	; 0x04
+ 244:	00 97       	sbiw	r24, 0x00	; 0
+ 246:	11 f4       	brne	.+4      	; 0x24c <CameraAxisDecode+0xf0>
+			{
+				PORTC &= ((0<<TILT_BIT));
+ 248:	88 b1       	in	r24, 0x08	; 8
+ 24a:	18 b8       	out	0x08, r1	; 8
+	for(min_delay = 1000; min_delay > 0;min_delay--)
+	{
+		_delay_us(1);
+	}
+	//remainder PW, up to 1ms
+	while((pan_count > 0)||(tilt_count > 0))
+ 24c:	8a 81       	ldd	r24, Y+2	; 0x02
+ 24e:	9b 81       	ldd	r25, Y+3	; 0x03
+ 250:	18 16       	cp	r1, r24
+ 252:	19 06       	cpc	r1, r25
+ 254:	fc f2       	brlt	.-66     	; 0x214 <CameraAxisDecode+0xb8>
+ 256:	8c 81       	ldd	r24, Y+4	; 0x04
+ 258:	9d 81       	ldd	r25, Y+5	; 0x05
+ 25a:	18 16       	cp	r1, r24
+ 25c:	19 06       	cpc	r1, r25
+ 25e:	d4 f2       	brlt	.-76     	; 0x214 <CameraAxisDecode+0xb8>
+				PORTC &= ((0<<TILT_BIT));
+			}
+		}	
+				
+	}
+	while(remainder--)
+ 260:	8e 81       	ldd	r24, Y+6	; 0x06
+ 262:	9f 81       	ldd	r25, Y+7	; 0x07
+ 264:	9c 01       	movw	r18, r24
+ 266:	21 50       	subi	r18, 0x01	; 1
+ 268:	30 40       	sbci	r19, 0x00	; 0
+ 26a:	3f 83       	std	Y+7, r19	; 0x07
+ 26c:	2e 83       	std	Y+6, r18	; 0x06
+ 26e:	00 97       	sbiw	r24, 0x00	; 0
+ 270:	59 f0       	breq	.+22     	; 0x288 <CameraAxisDecode+0x12c>
+ 272:	00 c0       	rjmp	.+0      	; 0x274 <CameraAxisDecode+0x118>
+ 274:	00 c0       	rjmp	.+0      	; 0x276 <CameraAxisDecode+0x11a>
+ 276:	8e 81       	ldd	r24, Y+6	; 0x06
+ 278:	9f 81       	ldd	r25, Y+7	; 0x07
+ 27a:	9c 01       	movw	r18, r24
+ 27c:	21 50       	subi	r18, 0x01	; 1
+ 27e:	30 40       	sbci	r19, 0x00	; 0
+ 280:	3f 83       	std	Y+7, r19	; 0x07
+ 282:	2e 83       	std	Y+6, r18	; 0x06
+ 284:	00 97       	sbiw	r24, 0x00	; 0
+ 286:	a9 f7       	brne	.-22     	; 0x272 <CameraAxisDecode+0x116>
+	{
+		_delay_us(4);
+	}
+	return 0;
+}
+ 288:	80 e0       	ldi	r24, 0x00	; 0
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
+ 28c:	27 96       	adiw	r28, 0x07	; 7
+ 28e:	0f b6       	in	r0, 0x3f	; 63
+ 290:	f8 94       	cli
+ 292:	de bf       	out	0x3e, r29	; 62
+ 294:	0f be       	out	0x3f, r0	; 63
+ 296:	cd bf       	out	0x3d, r28	; 61
+ 298:	df 91       	pop	r29
+ 29a:	cf 91       	pop	r28
+ 29c:	08 95       	ret
+
+0000029e <GetTilt>:
+}
+//Description:	gets the current tilt position from 0 to 255
+//Return:		tilt percentage
+unsigned char GetTilt()
+{
+	return tilt_pos;
+ 29e:	80 91 01 01 	lds	r24, 0x0101
+}
+ 2a2:	08 95       	ret
+
+000002a4 <GetPan>:
+
+//Description:	gets the current pan position from 0 to 255
+//Return:		pan percentage
+unsigned char GetPan()
+{
+	return pan_pos;
+ 2a4:	80 91 00 01 	lds	r24, 0x0100
+ 2a8:	08 95       	ret
+
+000002aa <main>:
+#include "TreadAxis.h"
+#include "CameraAxis.h"
+
+int main(void)
+{
+	TreadAxisInit();
+ 2aa:	0e 94 a9 01 	call	0x352	; 0x352 <TreadAxisInit>
+	CameraAxisInit();
+ 2ae:	0e 94 5d 00 	call	0xba	; 0xba <CameraAxisInit>
+    while(1)
+    {
+		TreadAxisDecode();
+ 2b2:	0e 94 83 01 	call	0x306	; 0x306 <TreadAxisDecode>
+		CameraAxisDecode();
+ 2b6:	0e 94 ae 00 	call	0x15c	; 0x15c <CameraAxisDecode>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2ba:	87 e8       	ldi	r24, 0x87	; 135
+ 2bc:	93 e1       	ldi	r25, 0x13	; 19
+ 2be:	01 97       	sbiw	r24, 0x01	; 1
+ 2c0:	f1 f7       	brne	.-4      	; 0x2be <main+0x14>
+ 2c2:	00 c0       	rjmp	.+0      	; 0x2c4 <main+0x1a>
+ 2c4:	00 00       	nop
+ 2c6:	f5 cf       	rjmp	.-22     	; 0x2b2 <main+0x8>
+
+000002c8 <Forwards>:
+//Description:	Drives motors forward
+//Return:		error code of 0 for no error
+int Forwards()
+{
+	//Drive Left Bank forwards
+	PORTA = (1<<PORTA0)|(1<<PORTA1)|(1<<PORTA3);
+ 2c8:	8b e0       	ldi	r24, 0x0B	; 11
+ 2ca:	82 b9       	out	0x02, r24	; 2
+	//Drive Right Bank Forwards
+	PORTB = (1<<PORTB0)|(1<<PORTB1)|(1<<PORTB3);
+ 2cc:	85 b9       	out	0x05, r24	; 5
+	return 0;
+}
+ 2ce:	80 e0       	ldi	r24, 0x00	; 0
+ 2d0:	90 e0       	ldi	r25, 0x00	; 0
+ 2d2:	08 95       	ret
+
+000002d4 <Backwards>:
+//Description:	Drives motors backwards
+//Return:		error code of 0 for no error
+int Backwards()
+{
+	//Drive Left Bank backwards
+	PORTA = (1<<PORTA0)|(1<<PORTA2)|(1<<PORTA4);
+ 2d4:	85 e1       	ldi	r24, 0x15	; 21
+ 2d6:	82 b9       	out	0x02, r24	; 2
+	//Drive Right Bank Backwards
+	PORTB = (1<<PORTB0)|(1<<PORTB2)|(1<<PORTB4);
+ 2d8:	85 b9       	out	0x05, r24	; 5
+	return 0;
+}
+ 2da:	80 e0       	ldi	r24, 0x00	; 0
+ 2dc:	90 e0       	ldi	r25, 0x00	; 0
+ 2de:	08 95       	ret
+
+000002e0 <Left>:
+//Description:	Drives left bank forward and right bank backwards
+//Return:		error code of 0 for no error
+int Left()
+{
+	//Drive Left Bank forwards
+	PORTA = (1<<PORTA0)|(1<<PORTA1)|(1<<PORTA3);
+ 2e0:	8b e0       	ldi	r24, 0x0B	; 11
+ 2e2:	82 b9       	out	0x02, r24	; 2
+	//Drive Right Bank Backwards
+	PORTB = (1<<PORTB0)|(1<<PORTB2)|(1<<PORTB4);
+ 2e4:	85 e1       	ldi	r24, 0x15	; 21
+ 2e6:	85 b9       	out	0x05, r24	; 5
+	return 0;
+}
+ 2e8:	80 e0       	ldi	r24, 0x00	; 0
+ 2ea:	90 e0       	ldi	r25, 0x00	; 0
+ 2ec:	08 95       	ret
+
+000002ee <Right>:
+//Description:	Drives right bank forward and the left bank backwards
+//Return:		error code of 0 for no error
+int Right()
+{
+	//Drive Left Bank backwards
+	PORTA = (1<<PORTA0)|(1<<PORTA2)|(1<<PORTA4);
+ 2ee:	85 e1       	ldi	r24, 0x15	; 21
+ 2f0:	82 b9       	out	0x02, r24	; 2
+	//Drive Right Bank Forwards
+	PORTB = (1<<PORTB0)|(1<<PORTB1)|(1<<PORTB3);
+ 2f2:	8b e0       	ldi	r24, 0x0B	; 11
+ 2f4:	85 b9       	out	0x05, r24	; 5
+	return 0;
+}
+ 2f6:	80 e0       	ldi	r24, 0x00	; 0
+ 2f8:	90 e0       	ldi	r25, 0x00	; 0
+ 2fa:	08 95       	ret
+
+000002fc <Hold>:
+
+//Description:	Disables all motors
+//Return:		error code of 0 for no error
+int Hold()
+{
+	PORTA = HALT;
+ 2fc:	12 b8       	out	0x02, r1	; 2
+	PORTB = HALT;
+ 2fe:	15 b8       	out	0x05, r1	; 5
+	return 0;
+}
+ 300:	80 e0       	ldi	r24, 0x00	; 0
+ 302:	90 e0       	ldi	r25, 0x00	; 0
+ 304:	08 95       	ret
+
+00000306 <TreadAxisDecode>:
+//Description: Picks up code on PORTD and executes the function corresponding to the code
+//Return:		error code of 0 for no error
+int TreadAxisDecode()
+{
+	unsigned char cmd = 0;
+	cmd = PIND;
+ 306:	89 b1       	in	r24, 0x09	; 9
+	if(FORWARD == (cmd & TREAD_MASK))
+ 308:	90 e0       	ldi	r25, 0x00	; 0
+ 30a:	87 70       	andi	r24, 0x07	; 7
+ 30c:	90 70       	andi	r25, 0x00	; 0
+ 30e:	81 30       	cpi	r24, 0x01	; 1
+ 310:	91 05       	cpc	r25, r1
+ 312:	19 f4       	brne	.+6      	; 0x31a <TreadAxisDecode+0x14>
+		Forwards();
+ 314:	0e 94 64 01 	call	0x2c8	; 0x2c8 <Forwards>
+ 318:	19 c0       	rjmp	.+50     	; 0x34c <TreadAxisDecode+0x46>
+	else if(BACKWARD == (cmd & TREAD_MASK))
+ 31a:	82 30       	cpi	r24, 0x02	; 2
+ 31c:	91 05       	cpc	r25, r1
+ 31e:	19 f4       	brne	.+6      	; 0x326 <TreadAxisDecode+0x20>
+		Backwards();
+ 320:	0e 94 6a 01 	call	0x2d4	; 0x2d4 <Backwards>
+ 324:	13 c0       	rjmp	.+38     	; 0x34c <TreadAxisDecode+0x46>
+	else if(LEFT == (cmd & TREAD_MASK))
+ 326:	83 30       	cpi	r24, 0x03	; 3
+ 328:	91 05       	cpc	r25, r1
+ 32a:	19 f4       	brne	.+6      	; 0x332 <TreadAxisDecode+0x2c>
+		Left();
+ 32c:	0e 94 70 01 	call	0x2e0	; 0x2e0 <Left>
+ 330:	0d c0       	rjmp	.+26     	; 0x34c <TreadAxisDecode+0x46>
+	else if(RIGHT == (cmd & TREAD_MASK))
+ 332:	84 30       	cpi	r24, 0x04	; 4
+ 334:	91 05       	cpc	r25, r1
+ 336:	19 f4       	brne	.+6      	; 0x33e <TreadAxisDecode+0x38>
+		Right();
+ 338:	0e 94 77 01 	call	0x2ee	; 0x2ee <Right>
+ 33c:	07 c0       	rjmp	.+14     	; 0x34c <TreadAxisDecode+0x46>
+	else if(HALT == (cmd & TREAD_MASK))
+ 33e:	00 97       	sbiw	r24, 0x00	; 0
+ 340:	19 f4       	brne	.+6      	; 0x348 <TreadAxisDecode+0x42>
+		Hold();
+ 342:	0e 94 7e 01 	call	0x2fc	; 0x2fc <Hold>
+ 346:	02 c0       	rjmp	.+4      	; 0x34c <TreadAxisDecode+0x46>
+	else
+		Hold();
+ 348:	0e 94 7e 01 	call	0x2fc	; 0x2fc <Hold>
+	return 0;
+}
+ 34c:	80 e0       	ldi	r24, 0x00	; 0
+ 34e:	90 e0       	ldi	r25, 0x00	; 0
+ 350:	08 95       	ret
+
+00000352 <TreadAxisInit>:
+//				PORTB set to outputs for Right Motor bank
+//Return:		error code of 0 for no error
+int TreadAxisInit()
+{
+	//set PORTD to inputs with no pullups
+	PORTD = 0x00;
+ 352:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;
+ 354:	1a b8       	out	0x0a, r1	; 10
+	//set PORTA as outputs
+	PORTA = HALT;
+ 356:	12 b8       	out	0x02, r1	; 2
+	DDRA = (1<<DDRA0)|(1<<DDRA1)|(1<<DDRA2)|(1<<DDRA3)|(1<<DDRA4);
+ 358:	8f e1       	ldi	r24, 0x1F	; 31
+ 35a:	81 b9       	out	0x01, r24	; 1
+	//set PORTB as outputs
+	PORTB = HALT;
+ 35c:	15 b8       	out	0x05, r1	; 5
+	DDRB = (1<<DDRB0)|(1<<DDRB1)|(1<<DDRB2)|(1<<DDRB3)|(1<<DDRB4);
+ 35e:	84 b9       	out	0x04, r24	; 4
+	return 0;
+ 360:	80 e0       	ldi	r24, 0x00	; 0
+ 362:	90 e0       	ldi	r25, 0x00	; 0
+ 364:	08 95       	ret
+
+00000366 <_exit>:
+ 366:	f8 94       	cli
+
+00000368 <__stop_program>:
+ 368:	ff cf       	rjmp	.-2      	; 0x368 <__stop_program>

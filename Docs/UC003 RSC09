@@ -1,0 +1,21 @@
+#![Tread Axis]
+ext:External [Pe]
+Remote User:Actor
+Server:Server[] "Webserver"
+RSC_Control:RSC_Control [] "RSC_Control"
+TreadAxis:TreadAxis[] "Tread Axis"
+mc:mc[p] "Microcontroller"
+
+
+Remote User:Server.Key_Input
+Server:RSC_Control.Send Tread Control
+RSC_Control:TreadAxis.Generate Opcode
+TreadAxis:mc.Energize motors
+
+
+
+
+
+
+
+
