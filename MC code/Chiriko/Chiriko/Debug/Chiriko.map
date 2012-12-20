@@ -122,7 +122,7 @@ LOAD c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x36a
+.text           0x00000000      0x354
  *(.vectors)
  .vectors       0x00000000       0x7c c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm324p.o
                 0x00000000                __vector_default
@@ -209,40 +209,40 @@ LOAD c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0
                 0x000000b6                __vector_16
                 0x000000b6                __vector_18
                 0x000000b6                __vector_20
- .text          0x000000ba      0x1f0 CameraAxis.o
+ .text          0x000000ba      0x1d4 CameraAxis.o
                 0x000000ba                CameraAxisInit
-                0x000000d4                TiltInc
-                0x000000f2                TiltDec
-                0x00000110                PanInc
-                0x0000012e                PanDec
-                0x0000014c                LED_On
-                0x00000154                LED_Off
-                0x0000015c                CameraAxisDecode
-                0x0000029e                GetTilt
-                0x000002a4                GetPan
- .text          0x000002aa       0x1e Chiriko.o
-                0x000002aa                main
- .text          0x000002c8       0x9e TreadAxis.o
-                0x000002c8                Forwards
-                0x000002d4                Backwards
-                0x000002e0                Left
-                0x000002ee                Right
-                0x000002fc                Hold
-                0x00000306                TreadAxisDecode
-                0x00000352                TreadAxisInit
- .text          0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .text          0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .text          0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
-                0x00000366                . = ALIGN (0x2)
+                0x000000e2                TiltInc
+                0x00000108                TiltDec
+                0x0000012c                PanInc
+                0x00000152                PanDec
+                0x00000176                LED_On
+                0x0000017e                LED_Off
+                0x00000186                CameraAxisDecode
+                0x00000282                GetTilt
+                0x00000288                GetPan
+ .text          0x0000028e       0x24 Chiriko.o
+                0x0000028e                main
+ .text          0x000002b2       0x9e TreadAxis.o
+                0x000002b2                Forwards
+                0x000002be                Backwards
+                0x000002ca                Left
+                0x000002d8                Right
+                0x000002e6                Hold
+                0x000002f0                TreadAxisDecode
+                0x0000033c                TreadAxisInit
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+                0x00000350                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
-                0x00000366                . = ALIGN (0x2)
+ .text.libgcc   0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+                0x00000350                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000366        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
-                0x00000366                _exit
-                0x00000366                exit
+ .fini9         0x00000350        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+                0x00000350                _exit
+                0x00000350                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -261,50 +261,50 @@ LOAD c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000366        0x4 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000350        0x4 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000036a                _etext = .
+                0x00000354                _etext = .
 
-.data           0x00800100        0x2 load address 0x0000036a
+.data           0x00800100        0x0 load address 0x00000354
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm324p.o
- .data          0x00800100        0x2 CameraAxis.o
- .data          0x00800102        0x0 Chiriko.o
- .data          0x00800102        0x0 TreadAxis.o
- .data          0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .data          0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .data          0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800100        0x0 CameraAxis.o
+ .data          0x00800100        0x0 Chiriko.o
+ .data          0x00800100        0x0 TreadAxis.o
+ .data          0x00800100        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .data          0x00800100        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800100        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800102                . = ALIGN (0x2)
-                0x00800102                _edata = .
-                0x00800102                PROVIDE (__data_end, .)
+                0x00800100                . = ALIGN (0x2)
+                0x00800100                _edata = .
+                0x00800100                PROVIDE (__data_end, .)
 
-.bss            0x00800102        0x0
-                0x00800102                PROVIDE (__bss_start, .)
+.bss            0x00800100        0x4
+                0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm324p.o
- .bss           0x00800102        0x0 CameraAxis.o
- .bss           0x00800102        0x0 Chiriko.o
- .bss           0x00800102        0x0 TreadAxis.o
- .bss           0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .bss           0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800102        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800100        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm324p.o
+ .bss           0x00800100        0x4 CameraAxis.o
+ .bss           0x00800104        0x0 Chiriko.o
+ .bss           0x00800104        0x0 TreadAxis.o
+ .bss           0x00800104        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800104        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800104        0x0 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800102                PROVIDE (__bss_end, .)
-                0x0000036a                __data_load_start = LOADADDR (.data)
-                0x0000036c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800104                PROVIDE (__bss_end, .)
+                0x00000354                __data_load_start = LOADADDR (.data)
+                0x00000354                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800102        0x0
-                0x00800102                PROVIDE (__noinit_start, .)
+.noinit         0x00800104        0x0
+                0x00800104                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800102                PROVIDE (__noinit_end, .)
-                0x00800102                _end = .
-                0x00800102                PROVIDE (__heap_start, .)
+                0x00800104                PROVIDE (__noinit_end, .)
+                0x00800104                _end = .
+                0x00800104                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -378,33 +378,33 @@ LOAD c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0
  .debug_pubnames
                 0x00000000       0x6f TreadAxis.o
 
-.debug_info     0x00000000      0x80b
+.debug_info     0x00000000      0x7b8
  *(.debug_info)
- .debug_info    0x00000000      0x336 CameraAxis.o
- .debug_info    0x00000336      0x119 Chiriko.o
- .debug_info    0x0000044f      0x125 TreadAxis.o
- .debug_info    0x00000574       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_info    0x00000651       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_info    0x0000072e       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_info    0x00000000      0x2cb CameraAxis.o
+ .debug_info    0x000002cb      0x131 Chiriko.o
+ .debug_info    0x000003fc      0x125 TreadAxis.o
+ .debug_info    0x00000521       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_info    0x000005fe       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_info    0x000006db       0xdd c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x2c7
+.debug_abbrev   0x00000000      0x2ac
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x14e CameraAxis.o
- .debug_abbrev  0x0000014e       0xcb Chiriko.o
- .debug_abbrev  0x00000219       0x72 TreadAxis.o
- .debug_abbrev  0x0000028b       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_abbrev  0x0000029f       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_abbrev  0x000002b3       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x00000000      0x133 CameraAxis.o
+ .debug_abbrev  0x00000133       0xcb Chiriko.o
+ .debug_abbrev  0x000001fe       0x72 TreadAxis.o
+ .debug_abbrev  0x00000270       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_abbrev  0x00000284       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_abbrev  0x00000298       0x14 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
 
-.debug_line     0x00000000      0x766
+.debug_line     0x00000000      0x744
  *(.debug_line)
- .debug_line    0x00000000      0x1fc CameraAxis.o
- .debug_line    0x000001fc      0x187 Chiriko.o
- .debug_line    0x00000383      0x23c TreadAxis.o
- .debug_line    0x000005bf       0x88 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .debug_line    0x00000647       0x91 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .debug_line    0x000006d8       0x8e c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .debug_line    0x00000000      0x1d8 CameraAxis.o
+ .debug_line    0x000001d8      0x189 Chiriko.o
+ .debug_line    0x00000361      0x23c TreadAxis.o
+ .debug_line    0x0000059d       0x88 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .debug_line    0x00000625       0x91 c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .debug_line    0x000006b6       0x8e c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
 
 .debug_frame    0x00000000      0x168
  *(.debug_frame)
@@ -412,19 +412,19 @@ LOAD c:/program files (x86)/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0
  .debug_frame   0x000000c4       0x24 Chiriko.o
  .debug_frame   0x000000e8       0x80 TreadAxis.o
 
-.debug_str      0x00000000      0x227
+.debug_str      0x00000000      0x20a
  *(.debug_str)
- .debug_str     0x00000000      0x19d CameraAxis.o
-                                0x1d6 (size before relaxing)
- .debug_str     0x0000019d       0x2c Chiriko.o
-                                0x13e (size before relaxing)
- .debug_str     0x000001c9       0x5e TreadAxis.o
+ .debug_str     0x00000000      0x17a CameraAxis.o
+                                0x1b3 (size before relaxing)
+ .debug_str     0x0000017a       0x32 Chiriko.o
+                                0x14c (size before relaxing)
+ .debug_str     0x000001ac       0x5e TreadAxis.o
                                 0x128 (size before relaxing)
 
-.debug_loc      0x00000000      0x217
+.debug_loc      0x00000000      0x17a
  *(.debug_loc)
- .debug_loc     0x00000000      0x1f8 CameraAxis.o
- .debug_loc     0x000001f8       0x1f TreadAxis.o
+ .debug_loc     0x00000000      0x15b CameraAxis.o
+ .debug_loc     0x0000015b       0x1f TreadAxis.o
 
 .debug_macinfo
  *(.debug_macinfo)

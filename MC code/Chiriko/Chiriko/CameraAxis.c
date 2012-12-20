@@ -8,13 +8,14 @@
 //				puts LED in off
 //Return:		error code of 0 for no error
 #include "CameraAxis.h"
-#define MAX_TILT 250
-#define MIN_TILT 0
-#define MAX_PAN 250
-#define MIN_PAN 0
-
-volatile static unsigned char tilt_pos = 127;
-volatile static unsigned char pan_pos = 127;
+#define MAX_TILT 400
+#define MID_TILT 296
+#define MIN_TILT 191
+#define MAX_PAN 430
+#define MID_PAN 310
+#define MIN_PAN 191
+static unsigned int tilt_pos;
+static unsigned int pan_pos;
 int CameraAxisInit()
 {
 	//set PORTD to inputs with no pullups
@@ -23,8 +24,8 @@ int CameraAxisInit()
 	//set PORTC[0:2] to outputs and initialize to zero
 	DDRC = 0xff; //(1<<DDRC0)|(1<<DDRC1)|(1<<DDRC7);
 	PORTC = 0x00;//(0<<PAN_BIT)|(0<<TILT_BIT)|(0<<PORTC2);
-	tilt_pos = 125;
-	pan_pos = 125;
+	tilt_pos = MID_TILT;
+	pan_pos = MID_PAN;//650;
 	return 0;
 }
 
@@ -39,67 +40,51 @@ int CameraAxisDecode()
 	{
 		LED_On();
 	}		
-	else if(0x00 -- (code & 0x08))
+	else if(0x00 == (code & 0x08))
 	{
 		LED_Off();
 	}		
 	//update tilt axis	
-	if(TILT_UP == (code & TILT_MASK))
+	if(0x30 == (code & 0x30))
 	{
 		TiltInc();
 	}	
-	else if (TILT_DN == (code & TILT_MASK))
+	else if (0x20 == (code & 0x30))
 	{
 		TiltDec();
 	}	
 	//update pan axis	
-	if(PAN_LEFT == (code & PAN_MASK))
+	if(0xC0 == (code & 0xC0))
 	{
 		PanInc();
 	}	
-	else if(PAN_RIGHT == (code & PAN_MASK))
+	else if(0x80 == (code & 0xC0))
 	{
 		PanDec();
 	}	
-	//make PW
-	volatile int pan_count = pan_pos;
-	volatile int tilt_count = tilt_pos;
-	volatile int remainder = 0;
-	if(tilt_count > pan_count)
-		remainder = MAX_TILT - tilt_count;
-	else
-		remainder = MAX_PAN - pan_count;
-	int min_delay = 1000;
-	//Min PW of 1ms
-	PORTC |= (1<<PAN_BIT)|(1<<TILT_BIT);
-	for(min_delay = 1000; min_delay > 0;min_delay--)
-	{
+	//make PW times
+	//volatile unsigned int pan_count = pan_pos;
+	//volatile unsigned int tilt_count = tilt_pos;
+	volatile unsigned int delay = 440;
+	//Min PW for pan
+	PORTC |= ((1<<0)|(1<<1));
+	//pan PWM
+	while(delay--)
+	{	
 		_delay_us(1);
 	}
-	//remainder PW, up to 1ms
-	while((pan_count > 0)||(tilt_count > 0))
+	
+	delay = 430;
+	while(delay--)
 	{
-		_delay_us(4);
-		if(pan_count != 0)
-		{
-			if(--pan_count == 0)
-			{
-				PORTC &= ((0<<PAN_BIT));  
-			}
-		}
-		if(tilt_count != 0)
-		{
-			if(--tilt_count == 0)
-			{
-				PORTC &= ((0<<TILT_BIT));
-			}
-		}	
-				
+		if(pan_pos >= delay)
+			PORTC &= ~(1<<0);
+		if(tilt_pos >= delay)
+			PORTC &= ~(1<<1);
+		_delay_us(1);
 	}
-	while(remainder--)
-	{
-		_delay_us(4);
-	}
+	PORTC &=~((1<<1)|(1<<0));
+	
 	return 0;
 }
 

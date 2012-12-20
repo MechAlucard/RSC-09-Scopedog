@@ -20,6 +20,7 @@
 #define CAMERAAXIS_H_
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/cpufunc.h>
 //Description:	starts the PWM and set pan and tilt to neutral positions, LED setup
 //				puts LED in off
 //Return:		error code of 0 for no error
